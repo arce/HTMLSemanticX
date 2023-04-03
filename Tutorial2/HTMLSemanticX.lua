@@ -27,6 +27,9 @@ function cols(cols)
       if (cols[i]["@auto"]) then
         io.write('-md-auto')
       end
+      if (cols[i]["@align"]) then
+        io.write(' align-self-'..cols[i]["@align"])
+      end
       io.write('">')
       if (cols[i]:value()) then
         io.write(trim(cols[i]:value()))
@@ -45,6 +48,9 @@ function rows(rows)
     end
     if (rows[i]["@justify"]) then
       io.write(' justify-content-md-'..rows[i]["@justify"])
+    end
+    if (rows[i]["@align"]) then
+      io.write(' align-items-'..rows[i]["@align"])
     end
     io.write('">')
     if (rows[i].col) then
@@ -83,11 +89,13 @@ function head(elem)
   end
   io.write('<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">')
   io.write('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">')
-	io.write('</head>')
+  io.write('<link rel="stylesheet" href="custom.css">')
+  io.write('</head>')
 end
 
 function html(elem)
-  io.write('<html>')
+  io.write('<!doctype html>')
+  io.write('<html lang="en">')
   if (elem.head) then
     head(elem.head)
   end
@@ -99,7 +107,7 @@ end
 
 function main()
   local xml = require('xmlSimple').newParser()
-  local indexFile = assert(io.open('grid1.xhtml', 'rb'))
+  local indexFile = assert(io.open('grid8.xhtml', 'rb'))
   local content = indexFile:read('*all')
   local root = xml:ParseXmlText(content)
   if (root.html) then
