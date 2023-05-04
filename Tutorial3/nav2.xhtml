@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Navbar example 2</title>
+	</head>
+	<body>
+		<navbar expand="true" type="light" variant="light">
+			<navbar-brand href="#">Navbar</navbar-brand>
+			<navbar-toggle icon="true" target="nav-collapse"></navbar-toggle>
+			<navbar-collapse id="nav-collapse">
+				<navbar-nav justify="center">
+					<nav-item type="link" href="#">Link</nav-item>
+					<nav-item type="link" href="#" disabled="true">Disabled</nav-item>
+					<nav-item type="form"> 
+						<form-input placeholder="Search"></form-input>
+						<form-button type="submit">Search</form-button>
+					</nav-item>
+					<nav-item type="dropdown" text="Lang">
+						<dropdown-item href="#">EN</dropdown-item>
+						<dropdown-item href="#">ES</dropdown-item>
+						<dropdown-item href="#">RU</dropdown-item>
+						<dropdown-item href="#">FA</dropdown-item>
+					</nav-item>
+					<nav-item type="dropdown" text="User">
+						<dropdown-item href="#">Profile</dropdown-item>
+						<dropdown-item href="#">Sign Out</dropdown-item>
+					</nav-item>
+				</navbar-nav>
+			</navbar-collapse>
+		</navbar>
+	</body>
+</html>
